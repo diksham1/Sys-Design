@@ -69,7 +69,48 @@ Let's say you did not ask clarifications and directly jumped. All of sudden you 
 - Consistency - input data, all users can read at same time. All read the same data
 - Load Balancing - all load cannot be put on one server. Server will crash. Load need to be balanced
 - caching - cache something to retrieve it faster
----e.g scale expections - how many tweets, how many users, number of tweet views etc
---- ratio of reading/writing e.g 80/20 --more servers needed for reading
---- how much storage needed - number of users having photos and videos --we will need more servers for that. 
---- network bandwidth - tcp or udp
+	---e.g scale expections - how many tweets, how many users, number of tweet views etc
+	--- ratio of reading/writing e.g 80/20 --more servers needed for reading
+	--- how much storage needed - number of users having photos and videos --we will need more servers for that. 
+	--- network bandwidth - tcp or udp, where to place servers 
+	--- all data should not be stored in one server
+	--- do you want to keep your own servers or rent something like aws etc?
+
+**Defining Data Model**
+- Data Model: What data base, sql, noSql, Cassandra etc?
+- Some example entities : User, Tweet, UserFollow, Favorite Tweets etc
+
+**Create a high level design**
+- Just like ER Diagram 
+- We have different kind of data, more servers needed
+- Efficient database needed, distributed file system needed
+
+**Step: Detailed Design **
+- dig deeper about some components
+- ask interviewer where to dig deeper
+- feedback will guide you, both you and interviewer should be on same track
+- provide different approaches - provide pros and cons
+
+Let's say servers in us, india, phillipines etc. Let's keep one copy only. Is it fine?
+
+No, if one server crashes, we loose data. What to do now? 
+
+The answer is replicas. Same data can be stored in multiple servers. The master server will point to the other servers. 
+
+Latency - Lag when you request something and get a response
+
+**Last Step: Identifying and Resolving BottleNecks**
+
+- never is a design perfect
+- CAP theorem - Consisteny, Availability and Parition Tolerance, no more than two out of three can be achieved
+- interview time limited so solving those issues not possible. but give a hint
+- e.g a client and a single load balancer. What might be a flaw?
+--what if load balancer fails? can we have multiple load balancers?
+- how are we measuring our performance? how do we know if system fails? are there any dashboards? are their any alerts? 
+Let's say out of eight servers, two failed. Load balancer will keep on sending data to those but they won't respond. In these cases, message should be sent to the appropriate authorities.
+
+In a life cycle of product, it follows a binomial curve. Reliability is to be maintainted.
+
+*Google File System* 
+Google File System -
+

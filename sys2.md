@@ -19,7 +19,10 @@
 	--vertical - upgrade server
 	--horizontal scaling - more servers
 - advantages and disadvantages of both
+
 **1**
+
+
 	- if vs (vertical server) crashes, system fails
 	- if one server has lag time, entire system lags
 	- in horizontal , the task can be reassigned

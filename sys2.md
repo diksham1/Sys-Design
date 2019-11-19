@@ -22,15 +22,18 @@
 
 **1**
 
-
 	- if vs (vertical server) crashes, system fails
 	- if one server has lag time, entire system lags
 	- in horizontal , the task can be reassigned
 	- load balancers = check failure rate, if high, assign to other servers
+
 **2**
+
 	- upper limit to vertical scaling
 	- no upper limit to horizontal scaling
+
 **3**
+
 	- designing horizontal is harder 
 	- maintaining horizontal is harder - if twenty different servers get damaged, more repair
 
